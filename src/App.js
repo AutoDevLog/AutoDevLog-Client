@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./pages/main/main";
+import Login from "./pages/login/login"
 import './App.css';
 import styled from "styled-components";
 
@@ -9,6 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </Body>
@@ -18,5 +20,4 @@ function App() {
 export default App;
 
 const Body = styled.div`
-  margin: 0 auto;
 `;
