@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import * as styles from "./Main.styles";
+import { AuthContext } from "../../contexts/AuthContext";
+import * as styles from "./Home.styles";
 
-function Main() {
+function Home() {
   const [issue, setIssue] = useState('');
   const [inference, setInference] = useState('');
   const [solution, setSolution] = useState('');
   const [result, setResult] = useState('');
+
+  const { nickname } = useContext(AuthContext)
 
   const handleGenerate = () => {
     // 결과를 생성하는 로직 처리
@@ -23,17 +26,21 @@ function Main() {
   return (
     <styles.Container>
       <styles.HeaderContainer>
+      <Link to="/velog" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <styles.HeaderTitle style= {{paddingRight: '20px'}}>Velog 연동</styles.HeaderTitle>
+      </Link>
         <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <styles.HeaderTitle>로그인</styles.HeaderTitle>
+          <styles.HeaderTitle>로그아웃</styles.HeaderTitle>
         </Link>
       </styles.HeaderContainer>
       <styles.BodyContainer>
         <styles.BodyContentContainer>
-            <styles.BodyTitle>
+        <styles.BodyTitle>
             AudoDevLog
-            </styles.BodyTitle>
-            <styles.BodyText>
-          오늘 하루 공부 한걸 작성해보세요
+        </styles.BodyTitle>
+        <styles.BodyText>
+            { nickname } 님 안녕하세요 
+            {'\n'} 오늘 하루 공부 한걸 작성해보세요
         </styles.BodyText>
         </styles.BodyContentContainer>
       </styles.BodyContainer>
@@ -73,4 +80,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Home;
