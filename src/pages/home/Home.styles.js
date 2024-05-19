@@ -6,6 +6,8 @@ export const Container = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
   background-color: #fffff;
   margin: 0 auto;
   max-width: 50%;
@@ -27,9 +29,11 @@ export const BodyContentContainer = styled.div`
 
 export const BodyTitle = styled.h2`
   text-align: left;
+  white-space: pre-line;
 `;
 
-export const BodyText = styled.p`
+export const BodyText = styled.h3`
+white-space: pre-line;
 `;
 
 export const FormContainer = styled.div`
