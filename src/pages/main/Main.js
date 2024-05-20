@@ -1,26 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import * as styles from "./Main.styles";
 import Header from "../../componets/Header/Header";
-
+import AnimatedTitle from "../../componets/Animated/AnimatedTitle/AnimatedTitle";
+import AnimatedRoundBox from "../../componets/Animated/AnimatedRoundBox/AnimatedRoundBox";
 function Main() {
-  const [issue, setIssue] = useState('');
-  const [inference, setInference] = useState('');
-  const [solution, setSolution] = useState('');
-  const [result, setResult] = useState('');
-
-  const handleGenerate = () => {
-    // 결과를 생성하는 로직 처리
-    setResult('결과 값이 나옵니다.');
-  };
-
-  const handleReset = () => {
-    setIssue('');
-    setInference('');
-    setSolution('');
-    setResult('');
-  };
-
+  const [title1, setTitle1] = useState('UPLOAD WHAT YOU STUDY\nWITH GENAI');
+  const [title2, setTitle2] = useState('What is AutoDevLog');
+  const [title3, setTitle3] = useState('START AUTODEVLOG!')
+  /* Header Props */
   const links = [
     {
       to: "/login",
@@ -29,55 +16,52 @@ function Main() {
     }
   ];
 
+  const handleClick =() => {
+    console.log("clicked!")
+  };
+
   return (
     <styles.Container>
       <Header links={links}/>
       <styles.BodyContainer>
-        <styles.BodyContentContainer>
-            <styles.BodyTitle>
-            AudoDevLog
-            </styles.BodyTitle>
-            <styles.BodyText>
-          오늘 하루 공부 한걸 작성해보세요
-        </styles.BodyText>
-        </styles.BodyContentContainer>
+        <AnimatedTitle title={title1} style={{ padding: "1em", fontSize: "5em" }} trigger={false} />
       </styles.BodyContainer>
-      <styles.FormContainer>
-        <styles.FormTitle>키워드</styles.FormTitle>
-        <styles.FormText>키워드를 입력하세요</styles.FormText>
-          <styles.FormTitle>ISSUE</styles.FormTitle>
-          <styles.Input
-            type="text"
-            value={issue}
-            onChange={(e) => setIssue(e.target.value)}
-          />
-          <styles.FormTitle>INFERENCE</styles.FormTitle>
-          <styles.Input
-            type="text"
-            value={inference}
-            onChange={(e) => setInference(e.target.value)}
-          />
-          <styles.FormTitle>SOLUTION</styles.FormTitle>
-          <styles.Input
-            type="text"
-            value={solution}
-            onChange={(e) => setSolution(e.target.value)}
-          />
-        <styles.ButtonContainer>
-          <styles.Button onClick={handleGenerate}>생성하기</styles.Button>
-        </styles.ButtonContainer>
-        <styles.ResultBox>
-        <styles.BodyText>{result}</styles.BodyText>
-        </styles.ResultBox>
-        <styles.ButtonContainer>
-            <styles.Button onClick={handleReset}>다시 생성하기</styles.Button>
-            <styles.Button style={{ marginLeft: "10px" }}>전송하기</styles.Button>
-        </styles.ButtonContainer>
-      </styles.FormContainer>
+      <AnimatedTitle title={title2} style = {{ paddingTop: "1em", fontSize: "3em" }} trigger={true} />
+      <styles.BoxContainer>
+      <AnimatedRoundBox>
+        <styles.BoxTitle>
+          Issue
+        </styles.BoxTitle>
+        <styles.BoxText>
+          Issue is Issue
+        </styles.BoxText>
+      </AnimatedRoundBox>
+      <AnimatedRoundBox>
+        <styles.BoxTitle>
+          Inference
+        </styles.BoxTitle>
+        <styles.BoxText>
+          Inference for your Issue
+        </styles.BoxText>
+      </AnimatedRoundBox>
+      <AnimatedRoundBox>
+        <styles.BoxTitle>
+          Solution
+        </styles.BoxTitle>
+        <styles.BoxText>
+          What is your solution
+        </styles.BoxText>
+      </AnimatedRoundBox>
+      </styles.BoxContainer>
+      <styles.BodyContainer>
+        <AnimatedTitle title={title3} style = {{ paddingTop: "1em", fontSize: "3em"}} trigger = {true} />
+          <AnimatedRoundBox onclick= {handleClick} trigger = {true} style = {{ backgroundColor: "white", marginBottom : "5em", textAlign : "center"}}>
+            <styles.BoxTitle style = {{marginTop : "3px"}}>Register</styles.BoxTitle>
+          </AnimatedRoundBox>
+      </styles.BodyContainer>
+      
     </styles.Container>
   );
 }
 
 export default Main;
-
-//change Name
