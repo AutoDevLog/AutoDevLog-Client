@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as styles from "./Main.styles";
+import Header from "../../componets/Header/Header";
 
 function Main() {
   const [issue, setIssue] = useState('');
@@ -20,13 +21,17 @@ function Main() {
     setResult('');
   };
 
+  const links = [
+    {
+      to: "/login",
+      label: "로그인",
+      style: {}
+    }
+  ];
+
   return (
     <styles.Container>
-      <styles.HeaderContainer>
-        <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <styles.HeaderTitle>로그인</styles.HeaderTitle>
-        </Link>
-      </styles.HeaderContainer>
+      <Header links={links}/>
       <styles.BodyContainer>
         <styles.BodyContentContainer>
             <styles.BodyTitle>

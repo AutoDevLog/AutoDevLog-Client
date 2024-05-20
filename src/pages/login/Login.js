@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
+import Header from '../../componets/Header/Header';
 import * as styles from './Login.styles';
 
 
@@ -27,13 +28,17 @@ const Login = () => {
     }
   };
 
+  const links = [
+    {
+      to: "/",
+      label: "Home",
+      style: {}
+    }
+  ];
+
   return (
     <styles.Container>
-      <styles.HeaderContainer>
-      <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <styles.HeaderTitle>Home</styles.HeaderTitle>
-        </Link>
-      </styles.HeaderContainer>
+        <Header links={links}/>
       <styles.BodyContainer>
         <styles.BodyContentContainer>
           <styles.FormContainer onSubmit = {handleLogin}>

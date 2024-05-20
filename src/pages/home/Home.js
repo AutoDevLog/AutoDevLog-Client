@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import * as styles from "./Home.styles";
+import Header from "../../componets/Header/Header";
 
 function Home() {
   const [issue, setIssue] = useState('');
@@ -10,6 +11,20 @@ function Home() {
   const [result, setResult] = useState('');
 
   const { nickname } = useContext(AuthContext)
+
+  const links = [
+    {
+      to: "/velog",
+      label: "Velog 연동",
+      style: { paddingRight: '20px'}
+    },
+    {
+      to: "/login",
+      label: "로그아웃",
+      style: {}
+    }
+  ];
+
 
   const handleGenerate = () => {
     // 결과를 생성하는 로직 처리
@@ -25,14 +40,7 @@ function Home() {
 
   return (
     <styles.Container>
-      <styles.HeaderContainer>
-      <Link to="/velog" style={{ textDecoration: 'none', color: 'inherit' }}>
-      <styles.HeaderTitle style= {{paddingRight: '20px'}}>Velog 연동</styles.HeaderTitle>
-      </Link>
-        <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <styles.HeaderTitle>로그아웃</styles.HeaderTitle>
-        </Link>
-      </styles.HeaderContainer>
+        <Header links = {links}/>
       <styles.BodyContainer>
         <styles.BodyContentContainer>
         <styles.BodyTitle>
