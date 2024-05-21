@@ -27,8 +27,10 @@ function Home() {
 
 
   const handleGenerate = () => {
-    // 결과를 생성하는 로직 처리
-    setResult('결과 값이 나옵니다.');
+    console.log(issue);
+    console.log(inference);
+    console.log(solution);
+    //handleSend();
   };
 
   const handleReset = () => {
@@ -37,6 +39,37 @@ function Home() {
     setSolution('');
     setResult('');
   };
+
+  const handleSend = async () => {
+    const data = {
+      issue: issue,
+      inference: inference,
+      solution: solution
+    };
+
+    try {
+      const response = await fetch('https://baseurl.com/api/endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Response:', responseData);
+        setResult(responseData);
+      } else {
+        console.error('Failed to send data');
+        setResult('Failed to send data.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setResult('Error sending data.');
+    }
+  };
+
 
   return (
     <styles.Container>

@@ -1,13 +1,15 @@
 import styled from 'styled-components';
+import colors from '../../styles/colors';
 
 export const Container = styled.div`
   font-family: Arial, sans-serif;
   margin: 0 auto;
+  background-color: ${colors.AliceBlue};
 `;
 
 export const BodyContainer = styled.div`
   padding: 20px;
-  background-color: #EDF1F5;
+  background-color: ${colors.Spindle};
 `;
 
 export const BoxContainer = styled.div`
