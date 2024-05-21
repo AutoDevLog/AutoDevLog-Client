@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
+import Header from '../../componets/Header/Header';
+import {sendLoginData} from '../../services/apis';
 import * as styles from './Login.styles';
 
 
@@ -12,9 +14,21 @@ const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
+    const data ={
+      id: username,
+      password: password,
+    }
     e.preventDefault();
     console.log('handleLogin called');
+    
+    try {
+      const responseData = await sendLoginData(data);
+      console.log('Response:', responseData);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
     // ID와 PW 검증 로직
     if (username === 'Admin' && password === '1234') {
       const token = 'dummy-token'; // 실제 로그인 로직에서 토큰 받아오기
@@ -27,13 +41,17 @@ const Login = () => {
     }
   };
 
+  const links = [
+    {
+      to: "/",
+      label: "Home",
+      style: {}
+    }
+  ];
+
   return (
     <styles.Container>
-      <styles.HeaderContainer>
-      <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <styles.HeaderTitle>Home</styles.HeaderTitle>
-        </Link>
-      </styles.HeaderContainer>
+        <Header links={links}/>
       <styles.BodyContainer>
         <styles.BodyContentContainer>
           <styles.FormContainer onSubmit = {handleLogin}>
@@ -52,7 +70,7 @@ const Login = () => {
             />
             {error && <styles.ErrorText>{error}</styles.ErrorText>}
             <styles.ButtonContainer>
-              <styles.Button type="submit">로그인</styles.Button>
+              <styles.Button type="submit" onClick={handleLogin}>로그인</styles.Button>
             </styles.ButtonContainer>
           </styles.FormContainer>
         </styles.BodyContentContainer>
