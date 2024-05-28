@@ -19,7 +19,7 @@ function Home() {
       style: { paddingRight: '20px'}
     },
     {
-      to: "/login",
+      to: "/",
       label: "로그아웃",
       style: {}
     }

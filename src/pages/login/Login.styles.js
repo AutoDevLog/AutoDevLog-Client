@@ -28,63 +28,15 @@ export const BodyContentContainer = styled.div`
   height: 100%; /* 부모 컨테이너의 전체 높이를 차지 */
 `;
 
-export const FormContainer = styled.form`
-  background-color: white;
-  padding: 20px;
-  border-radius: 30px;
-  width: 50%; /* 전체 비율의 50% */
-  height: 50%; /* 세로 높이의 50% */
-  display: flex;
-  flex-direction: column; /* 수직 정렬 */
-  justify-content: center;
-  align-items: center;
-`;
 
-export const FormTitle = styled.h1`
-  text-align: left;
-`;
 
 export const FormText = styled.p`
   text-align: left;
 `;
 
-export const Input = styled.input`
-  width: 80%;
-  background-color: #EDF1F5;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 4px;
-  border: 0.3px solid #ccc;
-  box-sizing: border-box; /* 입력 필드의 최대 너비 (선택 사항) */
-`;
 
-export const ErrorText = styled.p`
-  color: red;
-  margin-top: 10px;
-  text-align: center;
-`;
 
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-`;
 
-export const Button = styled.button`
-  padding: 10px 50px;
-  border-radius: 4px;
-  border: none;
-  background-color: white;
-  color: black;
-  cursor: pointer;
-  font-weight: bold;
-  border: 0.3px solid #ccc;
-  margin-left: 10px;
-
-  &:hover {
-    background-color: #EDF1F5;
-  }
-`;
 
 export const FooterContainer = styled.div`
   height: 50px; /* 푸터 높이 설정 */
