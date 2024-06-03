@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   font-family: Arial, sans-serif;
+  padding-bottom: 10px;
   margin: 0 auto;
   background-color: black;
   min-height: 100vh;
@@ -22,13 +23,24 @@ export const FormContainer = styled.div`
 export const FormRowContainer = styled.div`
   display: flex;
   flex-direction: row;
-`
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
 export const FormColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 3vh;
   width: 100vh;
-`
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+  }
+`;
+
 
 export const FormTitle = styled.h3`
   text-align: left;
