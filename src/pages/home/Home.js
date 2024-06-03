@@ -3,20 +3,21 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import * as styles from "./Home.styles";
 import Header from "../../componets/Header/Header";
+import { sendGptRequestData, gptFormatData, postVelog, initGptRequestFormat, initVelogPostFormat } from "../../services/apis"
 
 function Home() {
   const [issue, setIssue] = useState('');
   const [inference, setInference] = useState('');
   const [solution, setSolution] = useState('');
   const [result, setResult] = useState('');
-
-  const { nickname } = useContext(AuthContext)
+  const [token, setToken] = useState('');
+  const [title, setTitle] = useState('');
 
   const links = [
     {
       to: "/velog",
       label: "Velog 연동",
-      style: { paddingRight: '20px'}
+      style: { margin: "0 8px 0 0"}
     },
     {
       to: "/",
@@ -26,11 +27,12 @@ function Home() {
   ];
 
 
-  const handleGenerate = () => {
-    console.log(issue);
-    console.log(inference);
-    console.log(solution);
-    //handleSend();
+  const handleGenerate = async () => {
+    //console.log(issue);
+    //console.log(inference);
+    //console.log(solution);
+    const response = await sendGptRequestData(initGptRequestFormat(issue,inference,solution));
+    setResult(response);
   };
 
   const handleReset = () => {
@@ -40,82 +42,53 @@ function Home() {
     setResult('');
   };
 
-  const handleSend = async () => {
-    const data = {
-      issue: issue,
-      inference: inference,
-      solution: solution
-    };
+  const hanldeSend = async () => {
+    setTitle('Test')
+    const response = await postVelog(initVelogPostFormat(title,result,token))
 
-    try {
-      const response = await fetch('https://baseurl.com/api/endpoint', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log('Response:', responseData);
-        setResult(responseData);
-      } else {
-        console.error('Failed to send data');
-        setResult('Failed to send data.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setResult('Error sending data.');
-    }
-  };
-
+  }
 
   return (
     <styles.Container>
         <Header links = {links}/>
-      <styles.BodyContainer>
-        <styles.BodyContentContainer>
-        <styles.BodyTitle>
-            AudoDevLog
-        </styles.BodyTitle>
-        <styles.BodyText>
-            { nickname } 님 안녕하세요 
-            {'\n'} 오늘 하루 공부 한걸 작성해보세요
-        </styles.BodyText>
-        </styles.BodyContentContainer>
-      </styles.BodyContainer>
       <styles.FormContainer>
-        <styles.FormTitle>키워드</styles.FormTitle>
-        <styles.FormText>키워드를 입력하세요</styles.FormText>
-          <styles.FormTitle>ISSUE</styles.FormTitle>
-          <styles.Input
-            type="text"
-            value={issue}
-            onChange={(e) => setIssue(e.target.value)}
-          />
-          <styles.FormTitle>INFERENCE</styles.FormTitle>
-          <styles.Input
-            type="text"
-            value={inference}
-            onChange={(e) => setInference(e.target.value)}
-          />
-          <styles.FormTitle>SOLUTION</styles.FormTitle>
-          <styles.Input
-            type="text"
-            value={solution}
-            onChange={(e) => setSolution(e.target.value)}
-          />
-        <styles.ButtonContainer>
-          <styles.Button onClick={handleGenerate}>생성하기</styles.Button>
-        </styles.ButtonContainer>
-        <styles.ResultBox>
-        <styles.BodyText>{result}</styles.BodyText>
-        </styles.ResultBox>
-        <styles.ButtonContainer>
-            <styles.Button onClick={handleReset}>다시 생성하기</styles.Button>
-            <styles.Button style={{ marginLeft: "10px" }}>전송하기</styles.Button>
-        </styles.ButtonContainer>
+        <styles.FormRowContainer>
+          <styles.FormColumnContainer>
+            <styles.FormTitle>오늘 하루 정리한 내용을 작성하세요.</styles.FormTitle>
+            <styles.FormText>키워드를 기반으로 생성형 AI가 글을 작성해줍니다.</styles.FormText>
+            <styles.FormTitle>ISSUE (발생한 이슈)</styles.FormTitle>
+            <styles.Input
+              type="text"
+              value={issue}
+              onChange={(e) => setIssue(e.target.value)}
+            />
+            <styles.FormTitle>INFERENCE (해결 추론 과정) </styles.FormTitle>
+            <styles.Input
+              type="text"
+              value={inference}
+              onChange={(e) => setInference(e.target.value)}
+            />
+            <styles.FormTitle>SOLUTION (해결 방법) </styles.FormTitle>
+            <styles.Input
+              type="text"
+              value={solution}
+              onChange={(e) => setSolution(e.target.value)}
+            />
+            <styles.ButtonContainer>
+            <styles.Button onClick={handleGenerate}>생성하기</styles.Button>
+            </styles.ButtonContainer>
+          </styles.FormColumnContainer>
+          <styles.FormColumnContainer>
+            <styles.FormTitle> 작성된 결과 </styles.FormTitle>
+            <styles.ResultBox>
+            <styles.ResultText>{result}</styles.ResultText>
+            </styles.ResultBox>
+            <styles.ButtonContainer>
+              <styles.Button onClick={handleReset}>다시 생성하기</styles.Button>
+              <styles.Button onClick={handleGenerate} style={{ marginLeft: "10px" }}>전송하기</styles.Button>
+            </styles.ButtonContainer>
+          </styles.FormColumnContainer>
+        </styles.FormRowContainer>
       </styles.FormContainer>
     </styles.Container>
   );

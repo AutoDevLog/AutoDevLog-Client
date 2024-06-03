@@ -3,53 +3,60 @@ import styled from 'styled-components';
 export const Container = styled.div`
   font-family: Arial, sans-serif;
   margin: 0 auto;
+  background-color: black;
+  min-height: 100vh;
+  justify-content: center; /* 가로로 중앙 정렬 */
+  align-items: center; /* 세로로 중앙 정렬 */
 `;
 
 
-export const BodyContainer = styled.div`
-  padding: 20px;
-  background-color: #EDF1F5;
-`;
-
-export const BodyContentContainer = styled.div`
-  margin: 0 auto;
-  max-width: 50%;
-`;
-
-export const BodyTitle = styled.h2`
-  text-align: left;
-  white-space: pre-line;
-`;
-
-export const BodyText = styled.h3`
+export const ResultText = styled.h3`
 white-space: pre-line;
 `;
 
 export const FormContainer = styled.div`
-  padding: 20px;
-  max-width: 50%;
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 5vh 10vh;
+
 `;
+
+export const FormRowContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+export const FormColumnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 3vh;
+  width: 100vh;
+`
 
 export const FormTitle = styled.h3`
   text-align: left;
+  margin: 2vh 0;
+  color: white;
 `;
 
 export const FormText = styled.p`
   text-align: left;
+  margin: 0vh 0;
+  color: white;
 `;
 
 export const Input = styled.input`
   width: 100%;
-  background-color: #EDF1F5;
+  background-color: #EFEFEF;
   padding: 10px;
   margin: 2px 0;
-  border-radius: 4px;
+  border-radius: 15px;
   border: 0.3px solid #ccc;
-  box-sizing: border-box; /* 입력 필드의 최대 너비 (선택 사항) */
+  box-sizing: border-box;
+  outline: none; /* 포커스 시 기본 아웃라인 제거 */
+  
+  &:focus {
+    border: 0.3px solid #aaa; /* 포커스 시 테두리 색상 변경 (선택 사항) */
+    /* background-color: #ddd;  포커스 시 배경색 변경 (선택 사항) */
+  }
 `;
-
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -73,11 +80,11 @@ export const Button = styled.button`
 `;
 
 export const ResultBox = styled.div`
-  background-color: #EDF1F5; /* 배경색 */
+  overflow: scroll;
+  background-color: #EFEFEF; /* 배경색 */
   padding: 20px; /* 패딩 */
   border-radius: 10px; /* 둥근 모서리 */
-  margin-top: 10px; /* 상단 여백 */
   text-align: left; /* 텍스트 중앙 정렬 */
-  max-width: 100%; /* 최대 너비 */
+  height: 50vh;
   box-sizing: border-box; /* 수평 중앙 정렬 */
 `;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { AuthProvider, AuthContext } from './contexts/AuthContext';
 import Main from './pages/main/Main';
@@ -14,7 +14,7 @@ function App() {
       <Body>
         <Router>
           <Routes>
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<Suspense><Main /></Suspense>} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<PrivateRoute><MainHome /></PrivateRoute>} />
             <Route path="/velog" element={<VelogPage />} />
@@ -27,7 +27,7 @@ function App() {
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = React.useContext(AuthContext);
-  return isAuthenticated ? children : <Navigate to="/login" />;
+  return isAuthenticated ? children : <Navigate to="/velog" />;
 };
 
 export default App;

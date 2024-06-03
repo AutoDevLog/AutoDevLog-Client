@@ -7,11 +7,9 @@ import Modal from "../../componets/Modal/Modal";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { sendLoginData } from '../../services/apis';
+import logo_revert from '../../assets/logo_revert.svg';
 
 function Main() {
-  const [title1, setTitle1] = useState('UPLOAD WHAT YOU STUDY\nWITH GENAI');
-  const [title2, setTitle2] = useState('What is AutoDevLog');
-  const [title3, setTitle3] = useState('START AUTODEVLOG!');
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSlidingBoxOpen, setIsSlidingBoxOpen] = useState(false);
@@ -38,7 +36,7 @@ function Main() {
     }
 
     // ID와 PW 검증 로직
-    if (username === 'Admin' && password === '1234') {
+    if (username === 'admin' && password === '1234') {
       const token = 'dummy-token'; // 실제 로그인 로직에서 토큰 받아오기
       console.log('Login successful, navigating to /home');
       login(token, username);
@@ -81,16 +79,20 @@ function Main() {
     <styles.Container>
       <Header links={links}/>
       <styles.BodyContainer>
-        <AnimatedTitle title={title1} style={{ padding: "1em", fontSize: "4em", color: "white" }} trigger={false} />
+        <AnimatedTitle title="AUTO DEVELOPER" 
+          style={{ padding: "10vh", paddingBottom: "0px",margin:"0px", fontSize: "10em", color: "white",textAlign: "right"}} trigger={true}/>
+        <AnimatedTitle title=".LOG" 
+          style={{ padding: "0 10vh", margin:"0px", fontSize: "10em", color: "white",textAlign: "left"}} trigger={true}/>
       </styles.BodyContainer>
-      <AnimatedTitle title={title2} style={{ paddingTop: "1em", fontSize: "3em", color: "white" }} trigger={true} />
-      <styles.BoxContainer>
+      <styles.ColumnContainer>
+        <AnimatedTitle title="오늘 하루 당신의 개발일지를 작성하세요" style={{ paddingTop: "1em", fontSize: "5vh", color: "white", textAlign:"center" }} trigger={true} />
+        <styles.BoxContainer>
         <AnimatedRoundBox>
           <styles.BoxTitle>
             Issue
           </styles.BoxTitle>
           <styles.BoxText>
-            Issue is Issue
+            개발 중에 발생한 이슈는 무엇이었나요?
           </styles.BoxText>
         </AnimatedRoundBox>
         <AnimatedRoundBox>
@@ -98,7 +100,7 @@ function Main() {
             Inference
           </styles.BoxTitle>
           <styles.BoxText>
-            Inference for your Issue
+            이슈를 해결하는 과정은 무엇이었나요?
           </styles.BoxText>
         </AnimatedRoundBox>
         <AnimatedRoundBox>
@@ -106,23 +108,20 @@ function Main() {
             Solution
           </styles.BoxTitle>
           <styles.BoxText>
-            What is your solution
+            최종적으로 해결한 방법은?
           </styles.BoxText>
         </AnimatedRoundBox>
       </styles.BoxContainer>
-      <styles.BodyContainer>
-        <AnimatedTitle title={title3} style={{ paddingTop: "1em", fontSize: "3em", color: "white"}} trigger={true} />
-        <AnimatedRoundBox onClick={handleClick} trigger={true} style={{ backgroundColor: "white", marginBottom: "5em", textAlign: "center"}}>
-          <styles.BoxTitle style={{marginTop: "3px"}}>Register</styles.BoxTitle>
-        </AnimatedRoundBox>
-      </styles.BodyContainer>
+      </styles.ColumnContainer>
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
       </Modal>
         <styles.SlidingBox 
           isOpen={isSlidingBoxOpen}>
-          <styles.Button onClick={handleSlidingBoxClose}>Close</styles.Button>
-          <styles.BoxTitle3>로그인</styles.BoxTitle3>
+          <styles.CloseButton onClick={handleSlidingBoxClose}>X</styles.CloseButton>
           <styles.FormContainer onSubmit={handleLogin}>
+            <styles.LogoContainer>
+            <img src={logo_revert} alt="Logo" />
+            </styles.LogoContainer>
             {error && <styles.ErrorText>{error}</styles.ErrorText>}
             <styles.Input 
               type="text" 
@@ -139,7 +138,6 @@ function Main() {
             <styles.Button type="submit">로그인</styles.Button>
           </styles.FormContainer>
         </styles.SlidingBox>
-
     </styles.Container>
   );
 }

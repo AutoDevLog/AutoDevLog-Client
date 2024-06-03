@@ -22,39 +22,51 @@ export const Container = styled.div`
   font-family: Arial, sans-serif;
   margin: 0 auto;
   background-color: black;
+  min-height: 100vh;
 `;
 
 export const BodyContainer = styled.div`
-  padding: 20px;
   background-color: black;
 `;
 
-export const BoxContainer = styled.div`
-  justify-content: space-around;
-  padding: 2em;
+export const RowContainer = styled.div`
+  justify-content: center;
+  margin: 0 5vh;
   display: flex;
   flex-direction: row;
-  padding-bottom: 3em;
-  margin: 0 auto;
-  margin-bottom: 3em;
-  width: 80%;
+`
+
+export const ColumnContainer = styled.div`
+  justify-content: center;
+  margin: 0 5vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10vh;
+`
+
+export const BoxContainer = styled.div`
+  justify-content: space-around;
+  padding: 10vh;
+  display: flex;
+  flex-direction: row;
+  
   gap: 10px;
 `;
 
 export const BoxTitle3 = styled.h3`
-  margin-left: 5vh;
-  margin-bottom: 5px;
+  text-align: center;
   font-size: 4vh;
 `;
 
 export const BoxTitle = styled.h1`
-  margin-left: 5vh;
-  margin-bottom: 5px;
   font-size: 4vh;
+  text-align: center;
 `;
 
 export const BoxText = styled.p`
-  margin-top: 5px;
+  margin: 0 0 5vh 0;
+  font-size: 2vh;
+  text-align: left;
 `;
 
 export const SlidingBox = styled.div`
@@ -80,14 +92,26 @@ export const Button = styled.button`
   padding: 10px;
   border-radius: 4px;
   border: none;
-  background-color: #FFFFFF;
+  background-color: black;
+  color: white;
   cursor: pointer;
   font-weight: bold;
   border: 0.3px solid #ccc;
 
   &:hover {
     background-color: #EDF1F5;
+    color: black;
   }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
 `;
 
 export const Input = styled.input`
@@ -106,11 +130,21 @@ export const ErrorText = styled.p`
 export const FormContainer = styled.form`
   background-color: white;
   border-radius: 30px;
-  margin: 2vh 5vh;
+  margin: 20vh 5vh;
   display: flex;
   flex-direction: column; /* 수직 정렬 */
 `;
 
 export const FormTitle = styled.h1`
   text-align: left;
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 2vh; /* 로고 상하 마진 */
+  img {
+    height: 8vh; /* 로고 높이 조정 */
+    width: auto; /* 가로 비율 자동 조정 */
+  }
 `;
