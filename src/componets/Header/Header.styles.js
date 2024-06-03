@@ -18,10 +18,10 @@ export const HeaderRowContainer = styled.div`
 
 export const LogoContainer = styled.div`
   display: flex;
-  margin: 1vh; /* 로고 상하 마진 */
-  margin-bottom: 1vh-4px;
+  margin: 10px; /* 로고 상하 마진 */
+  margin-bottom: 10px-4px;
   img {
-    height: 3.5vh; /* 로고 높이 조정 */
+    height: 20px; /* 로고 높이 조정 */
     width: auto; /* 가로 비율 자동 조정 */
   }
 `;
@@ -29,7 +29,7 @@ export const LogoContainer = styled.div`
 export const RoundBox = styled.div`
   background-color: #FFFFFF;
   border-radius: 30px;
-  padding: 1vh 4vh;
+  padding: 8px 24px;
 `;
 
 export const HeaderButtonContainer = styled.div`

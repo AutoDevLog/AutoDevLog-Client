@@ -4,6 +4,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import * as styles from "./Home.styles";
 import Header from "../../componets/Header/Header";
 import { sendGptRequestData, gptFormatData, postVelog, initGptRequestFormat, initVelogPostFormat } from "../../services/apis"
+import styled, { keyframes } from 'styled-components';
 
 function Home() {
   const [issue, setIssue] = useState('');
@@ -12,6 +13,23 @@ function Home() {
   const [result, setResult] = useState('');
   const [token, setToken] = useState('');
   const [title, setTitle] = useState('');
+
+  // 애니메이션 정의
+  const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  `;
+
+  // 애니메이션이 적용된 컨테이너
+  const AnimatedContainer = styled.div`
+  animation: ${fadeInUp} 0.7s ease-out;
+  `;
 
   const links = [
     {
@@ -25,6 +43,8 @@ function Home() {
       style: {}
     }
   ];
+
+  
 
 
   const handleGenerate = async () => {
@@ -51,7 +71,8 @@ function Home() {
   return (
     <styles.Container>
         <Header links = {links}/>
-      <styles.FormContainer>
+      <AnimatedContainer>
+        <styles.FormContainer>
         <styles.FormRowContainer>
           <styles.FormColumnContainer>
             <styles.FormTitle>오늘 하루 정리한 내용을 작성하세요.</styles.FormTitle>
@@ -89,7 +110,8 @@ function Home() {
             </styles.ButtonContainer>
           </styles.FormColumnContainer>
         </styles.FormRowContainer>
-      </styles.FormContainer>
+        </styles.FormContainer>
+      </AnimatedContainer>
     </styles.Container>
   );
 }

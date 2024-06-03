@@ -10,7 +10,6 @@ import { sendLoginData } from '../../services/apis';
 import logo_revert from '../../assets/logo_revert.svg';
 
 function Main() {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSlidingBoxOpen, setIsSlidingBoxOpen] = useState(false);
 

@@ -72,7 +72,7 @@ export const sendLoginData = async ( {userId, password} )  => {
   
       if (response.ok) {
         console.log("success!")
-        return await email
+        return await response
         localStorage.setItem('accessToken', response.accessToken);
         localStorage.setItem('refreshToken', response.refreshToken);
       } else {
@@ -104,3 +104,28 @@ export const sendLoginData = async ( {userId, password} )  => {
       throw error;
     }
   }
+
+  export const sendLoginLink = async ( loginLink )  => {
+    console.log(loginLink);
+    try {
+      const response = await fetch(`${BASE_URL}/auth/link-velog-2`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ loginLink })
+      });
+  
+      if (response.ok) {
+        console.log("success!")
+        return await response
+        localStorage.setItem('accessToken', response.accessToken);
+        localStorage.setItem('refreshToken', response.refreshToken);
+      } else {
+        console.log("error!")
+        throw new Error('Failed to send data');
+      }
+    } catch (error) {
+      throw error;
+    }
+  };
