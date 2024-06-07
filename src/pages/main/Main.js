@@ -85,14 +85,14 @@ function Main() {
       <Header links={links}/>
       <styles.BodyContainer>
         <AnimatedTitle title="AUTO" 
-          style={{ padding: "10px", paddingBottom: "0px",margin:"0px", fontSize: "10em", color: "white",textAlign: "right"}} trigger={true}/>
+          style={{ color: "white",textAlign: "right"}} trigger={true}/>
         <AnimatedTitle title="DEVELOPER" 
-          style={{ padding: "10px", paddingBottom: "0px",margin:"0px", fontSize: "10em", color: "white",textAlign: "right"}} trigger={true}/>
+          style={{ color: "white",textAlign: "right"}} trigger={true}/>
         <AnimatedTitle title=".LOG" 
-          style={{ padding: "0 10px", margin:"0px", fontSize: "10em", color: "white",textAlign: "left"}} trigger={true}/>
+          style={{ color: "white",textAlign: "left"}} trigger={true}/>
       </styles.BodyContainer>
       <styles.ColumnContainer>
-        <AnimatedTitle title="오늘 하루 당신의 개발일지를 작성하세요" style={{ paddingTop: "1em", fontSize: "5vh", color: "white", textAlign:"center" }} trigger={true} />
+        <styles.BodyTitle>오늘 하루 당신의 개발일지를 작성하세요</styles.BodyTitle>
         <styles.BoxContainer>
         <AnimatedRoundBox>
           <styles.BoxTitle>
@@ -115,7 +115,7 @@ function Main() {
             Solution
           </styles.BoxTitle>
           <styles.BoxText>
-            최종적으로 해결한 방법은?
+            최종적으로 해결한 방법은 무엇이었나요?
           </styles.BoxText>
         </AnimatedRoundBox>
       </styles.BoxContainer>

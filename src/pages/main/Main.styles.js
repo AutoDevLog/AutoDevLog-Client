@@ -27,6 +27,48 @@ export const Container = styled.div`
 
 export const BodyContainer = styled.div`
   background-color: black;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10vh;
+  }
+
+  @media (max-width: 425px) {
+    padding: 5vh;
+  }
+  @media (max-width: 425px) {
+    padding: 5vh;
+}
+  @media (max-width: 375px) {
+    padding: 5vh;
+  }
+  @media (max-width: 320px) {
+    padding: 2vh;
+  }
+`;
+
+export const BodyTitle = styled.h1`
+  color: white;
+  text-align: center;
+  padding: 10px;
+
+  @media (max-width: 1024px) {
+    font-size: 15vh;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 5vh;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 4vh;
+  }
+  @media (max-width: 375px) {
+    font-size: 3vh;
+  }
+  @media (max-width: 320px) {
+    font-size: 3vh;
+  }
 `;
 
 export const RowContainer = styled.div`
@@ -42,20 +84,57 @@ export const ColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10vh;
+
+  @media (max-width: 768px) {
+    padding: 6vh;
+  }
+    
+  @media (max-width: 425px) {
+        padding: 6vh;
+  }
+  @media (max-width: 375px) {
+        padding: 4vh;
+  }
+  @media (max-width: 320px) {
+        padding: 2vh;
+  }
 `
 
 export const BoxContainer = styled.div`
   justify-content: space-around;
-  padding: 10vh;
+  margin-top: 100px;
+  padding: 0px;
   display: flex;
   flex-direction: row;
   
   gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+  @media (max-width: 425px) {
+    margin-top: 50px;
+  }
 `;
 
 export const BoxTitle3 = styled.h3`
   text-align: center;
   font-size: 4vh;
+
+  @media (max-width: 768px) {
+    font-size: 15vh;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 10vh;
+  }
+  @media (max-width: 375px) {
+    font-size: 8vh;
+  }
+  @media (max-width: 320px) {
+    font-size: 6vh;
+  }
 `;
 
 export const BoxTitle = styled.h1`
@@ -67,6 +146,19 @@ export const BoxText = styled.p`
   margin: 0 0 5vh 0;
   font-size: 2vh;
   text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 4vh;
+    text-align: center;
+  }
+  @media (max-width: 425px) {
+    font-size: 3vh;
+    text-align: center;
+  }
+  @media (max-width: 375px) {
+    font-size: 2vh;
+    text-align: center;
+  }
 `;
 
 export const SlidingBox = styled.div`
@@ -148,9 +240,3 @@ export const LogoContainer = styled.div`
     width: auto; /* 가로 비율 자동 조정 */
   }
 `;
-
-export const AnimatedTitle = styled.h1`
-@media (max-width: 1110px) {
-  font-size: 10px;
-}
-`
