@@ -33,7 +33,8 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: 'black',
   }
 };
 
@@ -177,7 +178,7 @@ function Home() {
         <styles.ModalContent>
           <styles.ModalTitle>생성형 AI 작성 중</styles.ModalTitle>
           <styles.ModalText>잠시만 기다려주세요</styles.ModalText>
-          <BeatLoader color="#36D7B7" loading={loading} size={15} margin={2} />
+          <BeatLoader color="#FFFFFF" loading={loading} size={15} margin={2} />
         </styles.ModalContent>
       </Modal>
 
@@ -190,7 +191,7 @@ function Home() {
         <styles.ModalContent>
           <styles.ModalTitle>Velog 업로드 중</styles.ModalTitle>
           <styles.ModalText>잠시만 기다려주세요</styles.ModalText>
-          <BeatLoader color="#36D7B7" loading={loading} size={15} margin={2} />
+          <BeatLoader color="#FFFFFF" loading={loading} size={15} margin={2} />
         </styles.ModalContent>
       </Modal>
 

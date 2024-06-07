@@ -57,11 +57,11 @@ export const FormText = styled.p`
 export const ModalTitle = styled.h1`
   text-align: left;
   margin: 2vh 0;
-  color: black;
+  color: white;
 `
 export const ModalText = styled.p`
   text-align: left;
-  color: black
+  color: white;
 `;
 
 export const Input = styled.input`
