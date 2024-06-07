@@ -12,7 +12,7 @@ export const HeaderRowContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: #000000;
-  margin: 0 10vh 0 5vh;
+  margin: 0 20px 0 20px;
   max-width: 100%;
 `;
 
