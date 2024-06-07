@@ -84,10 +84,12 @@ function Main() {
     <styles.Container>
       <Header links={links}/>
       <styles.BodyContainer>
-        <AnimatedTitle title="AUTO DEVELOPER" 
-          style={{ padding: "10vh", paddingBottom: "0px",margin:"0px", fontSize: "10em", color: "white",textAlign: "right"}} trigger={true}/>
+        <AnimatedTitle title="AUTO" 
+          style={{ padding: "10px", paddingBottom: "0px",margin:"0px", fontSize: "10em", color: "white",textAlign: "right"}} trigger={true}/>
+        <AnimatedTitle title="DEVELOPER" 
+          style={{ padding: "10px", paddingBottom: "0px",margin:"0px", fontSize: "10em", color: "white",textAlign: "right"}} trigger={true}/>
         <AnimatedTitle title=".LOG" 
-          style={{ padding: "0 10vh", margin:"0px", fontSize: "10em", color: "white",textAlign: "left"}} trigger={true}/>
+          style={{ padding: "0 10px", margin:"0px", fontSize: "10em", color: "white",textAlign: "left"}} trigger={true}/>
       </styles.BodyContainer>
       <styles.ColumnContainer>
         <AnimatedTitle title="오늘 하루 당신의 개발일지를 작성하세요" style={{ paddingTop: "1em", fontSize: "5vh", color: "white", textAlign:"center" }} trigger={true} />

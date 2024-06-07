@@ -148,3 +148,9 @@ export const LogoContainer = styled.div`
     width: auto; /* 가로 비율 자동 조정 */
   }
 `;
+
+export const AnimatedTitle = styled.h1`
+@media (max-width: 1110px) {
+  font-size: 10px;
+}
+`
