@@ -6,7 +6,7 @@ import AnimatedRoundBox from "../../componets/Animated/AnimatedRoundBox/Animated
 import Modal from "../../componets/Modal/Modal";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
-import { sendLoginData } from '../../services/apis';
+import { initLoginFormat, sendLoginData } from '../../services/apis';
 import logo_revert from '../../assets/logo_revert.svg';
 
 function Main() {
@@ -25,15 +25,20 @@ function Main() {
       password: password,
     }
     e.preventDefault();
-    console.log('handleLogin called');
 
     try {
-      const responseData = await sendLoginData(data);
-      console.log('Response:', responseData);
+      const responseData = await sendLoginData(initLoginFormat(username, password));
+      console.log(responseData);
+      localStorage.setItem('accessToken', responseData['accessToken']);
+      localStorage.setItem('refreshToken', responseData['refreshToken']);
+      console.log('accessToken:', localStorage.accessToken);
+      console.log('refreshToken:', localStorage.refreshToken);
+      navigate("/home");
     } catch (error) {
       console.error('Error:', error);
     }
 
+    /*
     // ID와 PW 검증 로직
     if (username === 'admin' && password === '1234') {
       const token = 'dummy-token'; // 실제 로그인 로직에서 토큰 받아오기
@@ -44,6 +49,7 @@ function Main() {
       setError('아이디 또는 비밀번호가 잘못되었습니다.');
       console.log('Login failed');  // 에러 메시지 설정
     }
+    */
   };
 
   const handleModalOpen = () => setIsModalOpen(true);
@@ -131,6 +137,7 @@ function Main() {
             <styles.Input 
               type="password" 
               placeholder="비밀번호" 
+              autocomplete="off"
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
             />

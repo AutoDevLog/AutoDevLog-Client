@@ -30,9 +30,11 @@ const VelogPage = () => {
     try {
       let response = await sendLoginLink(authLink);
       if (response.ok) {
-        console.log("success!")
+        console.log("VelogPage success!")
+        console.log(response);
+        navigate('/home')
       } else {
-        console.error('Error sending authlink:', response.statusText);
+        console.error('Error sending authlink:', response.body);
       }
     } catch (error) {
       console.error('Error occurred:', error);
