@@ -75,11 +75,6 @@ function Main() {
     }
   ];
 
-  const handleClick = () => {
-    handleModalOpen();
-    console.log("clicked!");
-  };
-
   return (
     <styles.Container>
       <Header links={links}/>
@@ -125,7 +120,7 @@ function Main() {
         <styles.SlidingBox 
           isOpen={isSlidingBoxOpen}>
           <styles.CloseButton onClick={handleSlidingBoxClose}>X</styles.CloseButton>
-          <styles.FormContainer onSubmit={handleLogin}>
+          <styles.FormContainer>
             <styles.LogoContainer>
             <img src={logo_revert} alt="Logo" />
             </styles.LogoContainer>
@@ -143,7 +138,7 @@ function Main() {
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
             />
-            <styles.Button type="submit">로그인</styles.Button>
+            <styles.Button onClick={handleLogin}>로그인</styles.Button>
           </styles.FormContainer>
         </styles.SlidingBox>
     </styles.Container>

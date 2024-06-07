@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { AuthProvider, AuthContext } from './contexts/AuthContext';
 import Main from './pages/main/Main';
 import Login from './pages/login/Login';
-import MainHome from './pages/home/Home'
+import Home from './pages/home/Home'
 import VelogPage from './pages/VelogPage/VelogPage';
 import './App.css';
 import styled from 'styled-components';
@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Suspense><Main /></Suspense>} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<MainHome />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/velog" element={<VelogPage />} />
           </Routes>
         </Router>
