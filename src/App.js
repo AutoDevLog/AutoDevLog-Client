@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Suspense><Main /></Suspense>} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<PrivateRoute><MainHome /></PrivateRoute>} />
+            <Route path="/home" element={<MainHome />} />
             <Route path="/velog" element={<VelogPage />} />
           </Routes>
         </Router>
@@ -27,7 +27,7 @@ function App() {
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = React.useContext(AuthContext);
-  return isAuthenticated ? children : <Navigate to="/velog" />;
+  return isAuthenticated ? children : <Navigate to="/main" />;
 };
 
 export default App;
