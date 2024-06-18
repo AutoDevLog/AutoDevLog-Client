@@ -116,10 +116,7 @@ function Main() {
           </styles.BoxText>
         </AnimatedRoundBox>
       </styles.BoxContainer>
-      </styles.ColumnContainer>
-      <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-      </Modal>
-        <styles.SlidingBox 
+      <styles.SlidingBox 
           isOpen={isSlidingBoxOpen}>
           <styles.CloseButton onClick={handleSlidingBoxClose}>X</styles.CloseButton>
           <styles.FormContainer onSubmit={handleLogin}>
@@ -143,6 +140,9 @@ function Main() {
             <styles.Button type="submit">로그인</styles.Button>
           </styles.FormContainer>
         </styles.SlidingBox>
+      </styles.ColumnContainer>
+      <Modal isOpen={isModalOpen} onClose={handleModalClose}>
+      </Modal>
     </styles.Container>
   );
 }

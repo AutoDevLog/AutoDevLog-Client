@@ -243,14 +243,21 @@ export const SlidingBox = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 60vh;
+  width: 100%;
+  max-width: 400px;
   height: 100%;
   background-color: white;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-  border-radius: 10px 0 0 10px;
-  z-index: 1000;
-  animation: ${props => props.isOpen ? css`${slideIn} 0.3s forwards` : css`${slideOut} 0.3s forwards`};
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+
+  ${(props) =>
+    props.isOpen &&
+    css`
+      transform: translateX(0);
+    `}
 `;
+
 
 export const ButtonContainer = styled.div`
   margin-right: 5vh;

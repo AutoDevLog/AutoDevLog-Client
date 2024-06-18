@@ -134,12 +134,12 @@ function Home() {
 
               <styles.ButtonContainer>
 
-                <styles.Button
+                <styles.GenerateButton
                   onClick={handleGenerate}
                   disabled={!issue || !inference || !solution}
                 >
                   생성하기
-                </styles.Button>
+                </styles.GenerateButton>
 
               </styles.ButtonContainer>
             </styles.FormColumnContainer>
