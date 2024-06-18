@@ -30,6 +30,11 @@ export const RoundBox = styled.div`
   background-color: #FFFFFF;
   border-radius: 30px;
   padding: 8px 24px;
+
+  @media (max-width: 425px) {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
 `;
 
 export const HeaderButtonContainer = styled.div`

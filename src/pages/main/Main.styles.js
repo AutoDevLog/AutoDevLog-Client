@@ -1,11 +1,24 @@
 import styled, { keyframes, css } from "styled-components";
 
+const slideUp = keyframes`
+  from {
+    transform: translateY(100%);
+    opactiy: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
 const slideIn = keyframes`
   from {
     transform: translateX(100%);
+    opactiy: 0;
   }
   to {
     transform: translateX(0);
+    opacity: 1;
   }
 `;
 
@@ -27,33 +40,33 @@ export const Container = styled.div`
 
 export const BodyContainer = styled.div`
   background-color: black;
-  padding: 20px;
+  padding: 5px 100px;
 
   @media (max-width: 768px) {
-    padding: 10vh;
+    padding: 1vh 10vh;
   }
 
   @media (max-width: 425px) {
-    padding: 5vh;
+    padding: 0.5vh 5vh;
   }
-  @media (max-width: 425px) {
-    padding: 5vh;
+  @media (max-width: 420px) {
+    padding: 0.5vh 5vh;
 }
   @media (max-width: 375px) {
-    padding: 5vh;
+    padding: 0.3vh 5vh;
   }
   @media (max-width: 320px) {
-    padding: 2vh;
+    padding: 0.2vh 5vh;
   }
 `;
 
 export const BodyTitle = styled.h1`
   color: white;
   text-align: center;
-  padding: 10px;
+  font-size: 12vh;
 
   @media (max-width: 1024px) {
-    font-size: 15vh;
+    font-size: 8vh;
   }
 
   @media (max-width: 768px) {
@@ -61,13 +74,63 @@ export const BodyTitle = styled.h1`
   }
 
   @media (max-width: 425px) {
-    font-size: 4vh;
+    font-size: 3vh;
   }
   @media (max-width: 375px) {
     font-size: 3vh;
   }
   @media (max-width: 320px) {
-    font-size: 3vh;
+    font-size: 2.5vh;
+  }
+`;
+
+export const BodyTitleRIGHT = styled.h1`
+  animation: ${slideUp} 0.5s ease-out 0s 1;
+  color: white;
+  text-align: Right;
+  font-size: 25vh;
+
+  @media (max-width: 1024px) {
+    font-size: 18vh;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15vh;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 7.5vh;
+  }
+  @media (max-width: 375px) {
+    font-size: 7vh;
+  }
+  @media (max-width: 320px) {
+    font-size: 5vh;
+  }
+`;
+
+export const BodyTitleLEFT = styled.h1`
+  animation: ${slideUp} 0.5s ease-out 0s 1;
+  color: white;
+  text-align: Left;
+  font-size: 25vh;
+
+  @media (max-width: 1024px) {
+    font-size: 18vh;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15vh;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 7.5vh;
+  }
+  @media (max-width: 375px) {
+    font-size: 7vh;
+  }
+  @media (max-width: 320px) {
+    font-size: 5vh;
   }
 `;
 
@@ -80,23 +143,23 @@ export const RowContainer = styled.div`
 
 export const ColumnContainer = styled.div`
   justify-content: center;
-  margin: 0 5vh;
+  margin: 0 30px;
   display: flex;
   flex-direction: column;
-  padding: 10vh;
+  padding: 10px 60px;
 
   @media (max-width: 768px) {
     padding: 6vh;
   }
     
   @media (max-width: 425px) {
-        padding: 6vh;
+        padding: 1vh 3vh;
   }
   @media (max-width: 375px) {
-        padding: 4vh;
+        padding: 0.8vh 1vh;
   }
   @media (max-width: 320px) {
-        padding: 2vh;
+        padding: 0.8vh 0.5vh;
   }
 `
 
@@ -105,9 +168,9 @@ export const BoxContainer = styled.div`
   margin-top: 100px;
   padding: 0px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   
-  gap: 10px;
+  gap: 5px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -138,25 +201,40 @@ export const BoxTitle3 = styled.h3`
 `;
 
 export const BoxTitle = styled.h1`
-  font-size: 4vh;
+  font-size: 6vh;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 6vh;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 5vh;
+  }
+  @media (max-width: 375px) {
+    font-size: 5vh;
+  }
+  @media (max-width: 320px) {
+    font-size: 4vh;
+  }
+  
 `;
 
 export const BoxText = styled.p`
   margin: 0 0 5vh 0;
-  font-size: 2vh;
-  text-align: left;
+  font-size: 4vh;
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 4vh;
     text-align: center;
   }
   @media (max-width: 425px) {
-    font-size: 3vh;
+    font-size: 3.5vh;
     text-align: center;
   }
   @media (max-width: 375px) {
-    font-size: 2vh;
+    font-size: 3vh;
     text-align: center;
   }
 `;

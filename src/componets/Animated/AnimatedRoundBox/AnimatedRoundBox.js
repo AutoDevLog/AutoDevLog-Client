@@ -1,43 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import * as styles from './AnimatedRoundBox.styles';
 
-const AnimatedRoundBox = ({ children, trigger, style, onclick}) => {
+const AnimatedRoundBox = ({ children, trigger, style, onClick, alignLeft }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
 
-  const animationProps = useSpring({
+  const animationPropsRight = useSpring({
     transform: isVisible ? 'translateX(0)' : 'translateX(100%)',
     opacity: isVisible ? 1 : 0,
   });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById('roundBox');
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  const animationPropsLeft = useSpring({
+    transform: isVisible ? 'translateX(0)' : 'translateX(-100%)',
+    opacity: isVisible ? 1 : 0,
+  });
 
-        if (rect.top <= windowHeight && rect.bottom >= 0) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
       }
     };
-
-    if (trigger) {
-      window.addEventListener('scroll', handleScroll);
-      handleScroll(); // Initial check
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    } else {
-      setIsVisible(true);
-    }
-  }, [trigger]);
+  }, []);
 
   return (
-    <styles.RoundBox id="roundBox" style={{ ...animationProps, ...style }} onClick = {onclick}>
+    <styles.RoundBox
+      ref={ref}
+      style={{ ...style, ...(alignLeft ? animationPropsLeft : animationPropsRight) }}
+      onClick={onClick}
+      alignLeft={alignLeft}
+    >
       {children}
     </styles.RoundBox>
   );
