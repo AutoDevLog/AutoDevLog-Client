@@ -24,10 +24,21 @@ export const FormContainer = styled.div`
   flex-direction: column; /* 수직 정렬 */
   justify-content: center;
   align-items: center;
+    
+  @media (max-width: 425px) {
+    padding: 20px 10px;
+  }
+  @media (max-width: 375px) {
+    margin: 10px;
+  }
 `;
 
 export const FormTitle = styled.h1`
   text-align: left;
+
+  @media (max-width: 425px) {
+    Font-size: 3vh;
+  }
 `;
 
 export const FormText = styled.p`
@@ -47,6 +58,20 @@ export const Input = styled.input`
   &:focus {
     border: 0.3px solid #aaa; /* 포커스 시 테두리 색상 변경 (선택 사항) */
     /* background-color: #ddd;  포커스 시 배경색 변경 (선택 사항) */
+  }
+  @media (max-width: 425px) {
+    width: 45vh;
+    margin: 5px 20px;
+  }
+
+  @media (max-width: 425px) {
+    width: 35vh;
+    margin: 5px 20px;
+  }
+
+  @media (max-width: 425px) {
+    width: 30vh;
+    margin: 5px 20px;
   }
 `;
 export const ErrorText = styled.p`

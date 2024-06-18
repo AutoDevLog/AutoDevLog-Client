@@ -79,12 +79,9 @@ function Main() {
     <styles.Container>
       <Header links={links}/>
       <styles.BodyContainer>
-        <AnimatedTitle title="AUTO" 
-          style={{ color: "white",textAlign: "right"}} trigger={true}/>
-        <AnimatedTitle title="DEVELOPER" 
-          style={{ color: "white",textAlign: "right"}} trigger={true}/>
-        <AnimatedTitle title=".LOG" 
-          style={{ color: "white",textAlign: "left"}} trigger={true}/>
+        <styles.BodyTitleRIGHT>AUTO</styles.BodyTitleRIGHT>
+        <styles.BodyTitleRIGHT>DEVELOPE</styles.BodyTitleRIGHT>
+        <styles.BodyTitleLEFT>.LOG</styles.BodyTitleLEFT>
       </styles.BodyContainer>
       <styles.ColumnContainer>
         <styles.BodyTitle>오늘 하루 당신의 개발일지를 작성하세요</styles.BodyTitle>
@@ -97,7 +94,7 @@ function Main() {
             개발 중에 발생한 이슈는 무엇이었나요?
           </styles.BoxText>
         </AnimatedRoundBox>
-        <AnimatedRoundBox>
+        <AnimatedRoundBox alignLeft = {true}>
           <styles.BoxTitle>
             Inference
           </styles.BoxTitle>
@@ -114,10 +111,7 @@ function Main() {
           </styles.BoxText>
         </AnimatedRoundBox>
       </styles.BoxContainer>
-      </styles.ColumnContainer>
-      <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-      </Modal>
-        <styles.SlidingBox 
+      <styles.SlidingBox 
           isOpen={isSlidingBoxOpen}>
           <styles.CloseButton onClick={handleSlidingBoxClose}>X</styles.CloseButton>
           <styles.FormContainer>
@@ -141,6 +135,9 @@ function Main() {
             <styles.Button onClick={handleLogin}>로그인</styles.Button>
           </styles.FormContainer>
         </styles.SlidingBox>
+      </styles.ColumnContainer>
+      <Modal isOpen={isModalOpen} onClose={handleModalClose}>
+      </Modal>
     </styles.Container>
   );
 }

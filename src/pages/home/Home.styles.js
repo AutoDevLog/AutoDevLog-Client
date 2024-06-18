@@ -18,6 +18,9 @@ white-space: pre-line;
 export const FormContainer = styled.div`
   margin: 5vh 10vh;
 
+  @media (max-width: 425px) {
+    margin: 5vh 5vh;
+  }
 `;
 
 export const FormRowContainer = styled.div`
@@ -46,12 +49,21 @@ export const FormTitle = styled.h3`
   text-align: left;
   margin: 2vh 0;
   color: white;
+
+  @media (max-width: 320px) {
+    font-size: 2vh;
+    margin: 1vh 0;
+  }
 `;
 
 export const FormText = styled.p`
   text-align: left;
   margin: 0vh 0;
   color: white;
+
+  @media (max-width: 320px) {
+    font-size: 1.5vh;
+  }
 `;
 
 export const ModalTitle = styled.h1`
@@ -68,7 +80,6 @@ export const Input = styled.input`
   width: 100%;
   background-color: #EFEFEF;
   padding: 10px;
-  margin: 2px 0;
   border-radius: 15px;
   border: 0.3px solid #ccc;
   box-sizing: border-box;
@@ -83,6 +94,35 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 10px;
+
+  @media (max-width: 375px) {
+    justify-content: center;
+  }
+`;
+
+export const GenerateButton = styled.button`
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  border: 0.3px solid #ccc;
+
+  &:hover {
+    background-color: #EDF1F5;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 40px;
+  }
+
+  @media (max-width: 375px) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px 100px;
+  }
 `;
 
 export const Button = styled.button`
@@ -94,10 +134,24 @@ export const Button = styled.button`
   cursor: pointer;
   font-weight: bold;
   border: 0.3px solid #ccc;
-  margin-left: 10px;
 
   &:hover {
     background-color: #EDF1F5;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 40px;
+  }
+
+  @media (max-width: 375px) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px auto;
+  }
+  @media (max-width: 320px) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
   }
 `;
 
@@ -105,6 +159,10 @@ export const WarningText = styled.p`
   text-align: left;
   color: red;
   margin-top: -5px;
+
+  @media (max-width: 320px) {
+    font-size: 1.5vh;
+  }
 `;
 
 export const ResultBox = styled.div`
