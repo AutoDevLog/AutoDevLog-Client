@@ -175,6 +175,21 @@ export const ResultBox = styled.div`
   box-sizing: border-box; /* 수평 중앙 정렬 */
 `;
 
+export const ResultBoxInput = styled.div`
+  overflow: scroll;
+  background-color: #EFEFEF; /* 배경색 */
+  padding: 20px; /* 패딩 */
+  border-radius: 10px; /* 둥근 모서리 */
+  text-align: left; /* 텍스트 중앙 정렬 */
+  height: 50vh;
+  box-sizing: border-box; /* 수평 중앙 정렬 */
+
+  &:focus {
+  border: 0.3px solid #aaa; /* 포커스 시 테두리 색상 변경 (선택 사항) */
+    /* background-color: #ddd;  포커스 시 배경색 변경 (선택 사항) */
+  }
+`;
+
 export const ModalContent = styled.div`
   display: flex;
   flex-direction: column;

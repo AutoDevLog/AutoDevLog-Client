@@ -153,13 +153,11 @@ function Home() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)} />
               <styles.FormTitle> 작성된 결과 </styles.FormTitle>
-              <styles.ResultBox>
-                <styles.ResultText>
-                  <ReactMarkdown>
-                    {result}
-                  </ReactMarkdown>
-                </styles.ResultText>
-              </styles.ResultBox>
+              <styles.ResultBoxInput
+                  as="textarea"
+                  value={result}
+                  onChange={(e) => setResult(e.target.value)}
+                />
               <styles.ButtonContainer>
                 <styles.Button onClick={handleReGeneration}>다시 생성하기</styles.Button>
                 <styles.Button onClick={handleSend} style={{ marginLeft: "10px" }}>전송하기</styles.Button>
