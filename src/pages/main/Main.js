@@ -75,11 +75,6 @@ function Main() {
     }
   ];
 
-  const handleClick = () => {
-    handleModalOpen();
-    console.log("clicked!");
-  };
-
   return (
     <styles.Container>
       <Header links={links}/>
@@ -116,12 +111,12 @@ function Main() {
           </styles.BoxText>
         </AnimatedRoundBox>
       </styles.BoxContainer>
-      <styles.SlidingBox 
-          isOpen={isSlidingBoxOpen}>
+      <styles.SlidingBox isOpen={isSlidingBoxOpen}>
+        <styles.ColumnContainer>
           <styles.CloseButton onClick={handleSlidingBoxClose}>X</styles.CloseButton>
           <styles.FormContainer onSubmit={handleLogin}>
             <styles.LogoContainer>
-            <img src={logo_revert} alt="Logo" />
+              <img src={logo_revert} alt="Logo" />
             </styles.LogoContainer>
             {error && <styles.ErrorText>{error}</styles.ErrorText>}
             <styles.Input 
@@ -139,6 +134,7 @@ function Main() {
             />
             <styles.Button type="submit">로그인</styles.Button>
           </styles.FormContainer>
+        </styles.ColumnContainer>
         </styles.SlidingBox>
       </styles.ColumnContainer>
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>

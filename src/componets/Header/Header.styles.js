@@ -4,7 +4,6 @@ export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column; /* 수직 방향으로 정렬 */
   background-color: black;
-  width: 100%;
 `;
 
 export const HeaderRowContainer = styled.div`
@@ -12,17 +11,36 @@ export const HeaderRowContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: #000000;
-  margin: 0 20px 0 20px;
-  max-width: 100%;
+  margin: 0 10px 0 10px;
 `;
 
 export const LogoContainer = styled.div`
   display: flex;
   margin: 10px; /* 로고 상하 마진 */
-  margin-bottom: 10px-4px;
   img {
-    height: 20px; /* 로고 높이 조정 */
+    height: 40px; /* 로고 높이 조정 */
     width: auto; /* 가로 비율 자동 조정 */
+  }
+
+  @media (max-width: 768px) {
+    img {
+      height: 30px; /* 로고 높이 조정 */
+      width: auto; /* 가로 비율 자동 조정 */
+    }
+  }
+
+  @media (max-width: 425px) {
+    img {
+      height: 20px; /* 로고 높이 조정 */
+      width: auto; /* 가로 비율 자동 조정 */
+    }
+  }
+
+  @media (max-width: 375px) {
+    img {
+      height: 20px; /* 로고 높이 조정 */
+      width: auto; /* 가로 비율 자동 조정 */
+    }
   }
 `;
 
