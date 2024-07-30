@@ -5,35 +5,43 @@ export const RoundBox = styled(animated.div)`
   display: flex;
   flex-direction: column;
   background-color: #f0f0f0;
-  width: 80vh;
+  width: 100em;
   border-radius: 10px;
   padding: 30px;
   margin-bottom: 20px;
   margin-left: ${props => props.alignLeft ? '0' : 'auto'};
 
+  @media (max-width: 2560px) {
+    width: 120em;
+  }
+
+  @media (max-width: 1440px) {
+    width: 50em;
+  }
+
   @media (max-width: 1024px) {
-    width: 80vh;
+    width: 50vw;
     margin-left: ${props => props.alignLeft ? '0' : 'auto'};
     margin-right: ${props => props.alignLeft ? 'auto' : '0'};
   }
 
   @media (max-width: 768px) {
-    width: 80vh;
+    width: 50vw;
     margin: auto;
     margin-left: ${props => props.alignLeft ? '0' : 'auto'};
     margin-right: ${props => props.alignLeft ? 'auto' : '0'};
   }
 
   @media (max-width: 425px) {
-    width: 35vh;
+    width: 50vw;
     margin:0 auto;
   }
   @media (max-width: 375px) {
-    width: 30vh;
+    width: 45vw;
     margin: 0 auto;
   }
   @media (max-width: 320px) {
-    width: 25vh;
-    margin: 0 auto;
+    width: 45vw;
+    margin: auto 10px;
   }
 `;

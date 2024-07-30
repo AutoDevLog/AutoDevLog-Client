@@ -4,7 +4,7 @@ export const Container = styled.div`
 `;
 
 export const BodyContainer = styled.div`
-  padding: 20px;
+  padding: 5vh 10vw;
   background-color: black;
   min-height: 100vh;
 `;
@@ -13,7 +13,7 @@ export const BodyContentContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15vh;
+  margin: 15vh 0;
 `;
 
 export const FormContainer = styled.div`
@@ -24,12 +24,18 @@ export const FormContainer = styled.div`
   flex-direction: column; /* 수직 정렬 */
   justify-content: center;
   align-items: center;
-    
+
+  @media (max-width: 768px) {
+    height: auto;
+    width: 70vw;
+  }
   @media (max-width: 425px) {
-    padding: 20px 10px;
+    height: auto;
+    width: 70vw;
   }
   @media (max-width: 375px) {
-    margin: 10px;
+    height: auto;
+    width: 60vw;
   }
 `;
 
@@ -37,7 +43,10 @@ export const FormTitle = styled.h1`
   text-align: left;
 
   @media (max-width: 425px) {
-    Font-size: 3vh;
+    Font-size: 1.5em;
+  }
+  @media (max-width: 375px) {
+    Font-size: 1em;
   }
 `;
 
@@ -59,20 +68,17 @@ export const Input = styled.input`
     border: 0.3px solid #aaa; /* 포커스 시 테두리 색상 변경 (선택 사항) */
     /* background-color: #ddd;  포커스 시 배경색 변경 (선택 사항) */
   }
-  @media (max-width: 425px) {
-    width: 45vh;
-    margin: 5px 20px;
+  @media (max-width: 768px) {
+    height: auto;
+    width: 70vw;
   }
 
   @media (max-width: 425px) {
-    width: 35vh;
-    margin: 5px 20px;
+    width: 70vw;
+    margin: 5px 10px;
   }
 
-  @media (max-width: 425px) {
-    width: 30vh;
-    margin: 5px 20px;
-  }
+
 `;
 export const ErrorText = styled.p`
   color: red;
@@ -83,7 +89,7 @@ export const ErrorText = styled.p`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: 5px;
 `;
 
 export const Button = styled.button`
@@ -99,6 +105,9 @@ export const Button = styled.button`
 
   &:hover {
     background-color: #EDF1F5;
+  }
+  @media (max-width: 375px) {
+    font-size: 0.5em;
   }
 `;
 
