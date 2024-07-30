@@ -21,9 +21,8 @@ const Header = ({ links }) => {
             onClick={link.onClick} // 링크 클릭 시 이벤트 핸들러 호출
           >
           <styles.RoundBox style={link.style}>
-          <styles.HeaderTitle >{link.label}</styles.HeaderTitle> 
+            <styles.HeaderTitle >{link.label}</styles.HeaderTitle> 
           </styles.RoundBox>
-            
           </Link>
         ))}
       </styles.HeaderButtonContainer>

@@ -50,6 +50,7 @@ function Home() {
   const [solution, setSolution] = useState('');
   const [result, setResult] = useState('');
   const [title, setTitle] = useState('');
+  const [shortscript, setShortscript] = useState('');
   const [loading, setLoading] = useState(false);
 
   const [sendloading, setSendLoading] = useState(false);
@@ -148,6 +149,11 @@ function Home() {
               {(!title || !result) && (
                 <styles.WarningText>제목을 입력주세요</styles.WarningText>
               )}
+              <styles.Input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)} />
+              <styles.FormTitle> 요약글 </styles.FormTitle>
               <styles.Input
                 type="text"
                 value={title}

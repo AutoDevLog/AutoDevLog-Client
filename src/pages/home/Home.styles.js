@@ -21,6 +21,9 @@ export const FormContainer = styled.div`
   @media (max-width: 425px) {
     margin: 5vh 5vh;
   }
+  @media (max-width: 475px) {
+    margin: 2vh 5vw;
+  }
 `;
 
 export const FormRowContainer = styled.div`
@@ -51,7 +54,7 @@ export const FormTitle = styled.h3`
   color: white;
 
   @media (max-width: 320px) {
-    font-size: 2vh;
+    font-size: 1em;
     margin: 1vh 0;
   }
 `;
@@ -62,7 +65,7 @@ export const FormText = styled.p`
   color: white;
 
   @media (max-width: 320px) {
-    font-size: 1.5vh;
+    font-size: 0.7em;
   }
 `;
 
@@ -121,7 +124,7 @@ export const GenerateButton = styled.button`
   @media (max-width: 375px) {
     margin-top: 10px;
     margin-bottom: 20px;
-    padding: 10px 100px;
+    width: 90vw;
   }
 `;
 
@@ -161,7 +164,7 @@ export const WarningText = styled.p`
   margin-top: -5px;
 
   @media (max-width: 320px) {
-    font-size: 1.5vh;
+    font-size: 0.7em;
   }
 `;
 

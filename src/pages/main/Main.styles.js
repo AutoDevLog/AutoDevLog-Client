@@ -104,9 +104,7 @@ export const BodyTitleRIGHT = styled.h1`
   @media (max-width: 375px) {
     font-size: 3em;
   }
-  @media (max-width: 320px) {
-    font-size: 2em;
-  }
+
 `;
 
 export const BodyTitleLEFT = styled.h1`
@@ -128,9 +126,6 @@ export const BodyTitleLEFT = styled.h1`
   }
   @media (max-width: 375px) {
     font-size: 3em;
-  }
-  @media (max-width: 320px) {
-    font-size: 2em;
   }
 `;
 
@@ -163,24 +158,12 @@ export const ColumnContainer = styled.div`
 
 export const BoxContainer = styled.div`
   justify-content: space-around;
-  margin-top: 100px;
+  margin-top: 5vh;
   padding: 0px;
   display: flex;
   flex-direction: column;
-  
-  gap: 5px;
+  gap: 5vh;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 20px;
-  }
-  @media (max-width: 425px) {
-    margin-top: 50px;
-  }
-  
-  @media (max-width: 375px) {
-    width: 300px;
-  }
 `;
 
 export const BoxTitle3 = styled.h3`
@@ -321,7 +304,7 @@ export const Input = styled.input`
   @media (max-width: 1024px) {
     padding : 10px;
     margin: 10px;
-    width: 30vw;
+    width: 50vw;
     height: auto;
   }
   
@@ -368,7 +351,7 @@ export const LogoContainer = styled.div`
   @media (max-width: 1024px) {
     img {
       height: auto; /* 로고 높이 조정 */
-      width: 30vw; /* 가로 비율 자동 조정 */
+      width: 50vw; /* 가로 비율 자동 조정 */
     }
   }
   

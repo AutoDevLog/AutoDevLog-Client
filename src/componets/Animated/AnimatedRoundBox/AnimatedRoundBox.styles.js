@@ -20,28 +20,28 @@ export const RoundBox = styled(animated.div)`
   }
 
   @media (max-width: 1024px) {
-    width: 25em;
+    width: 50vw;
     margin-left: ${props => props.alignLeft ? '0' : 'auto'};
     margin-right: ${props => props.alignLeft ? 'auto' : '0'};
   }
 
   @media (max-width: 768px) {
-    width: 20em;
+    width: 50vw;
     margin: auto;
     margin-left: ${props => props.alignLeft ? '0' : 'auto'};
     margin-right: ${props => props.alignLeft ? 'auto' : '0'};
   }
 
   @media (max-width: 425px) {
-    width: 15em;
+    width: 50vw;
     margin:0 auto;
   }
   @media (max-width: 375px) {
-    width: 13em;
+    width: 45vw;
     margin: 0 auto;
   }
   @media (max-width: 320px) {
-    width: 10em;
-    margin: 0 10px;
+    width: 45vw;
+    margin: auto 10px;
   }
 `;
