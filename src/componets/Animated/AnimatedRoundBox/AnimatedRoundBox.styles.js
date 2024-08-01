@@ -5,19 +5,13 @@ export const RoundBox = styled(animated.div)`
   display: flex;
   flex-direction: column;
   background-color: #f0f0f0;
-  width: 100em;
+
   border-radius: 10px;
   padding: 30px;
   margin-bottom: 20px;
   margin-left: ${props => props.alignLeft ? '0' : 'auto'};
+  margin-right: ${props => props.alignLeft ? 'auto' : '0'};
 
-  @media (max-width: 2560px) {
-    width: 120em;
-  }
-
-  @media (max-width: 1440px) {
-    width: 50em;
-  }
 
   @media (max-width: 1024px) {
     width: 50vw;
