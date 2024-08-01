@@ -16,20 +16,19 @@ white-space: pre-line;
 `;
 
 export const FormContainer = styled.div`
-  margin: 5vh 10vh;
+  margin: 5vw 10vh;
 
   @media (max-width: 425px) {
-    margin: 5vh 5vh;
+    margin: 5vw 5vh;
   }
   @media (max-width: 475px) {
-    margin: 2vh 5vw;
+    margin: 2vw 5vw;
   }
 `;
 
 export const FormRowContainer = styled.div`
   display: flex;
   flex-direction: row;
-
   @media (max-width: 1000px) {
     flex-direction: column;
   }
@@ -50,12 +49,12 @@ export const FormColumnContainer = styled.div`
 
 export const FormTitle = styled.h3`
   text-align: left;
-  margin: 2vh 0;
+  margin: 2vw 0;
   color: white;
 
   @media (max-width: 320px) {
     font-size: 1em;
-    margin: 1vh 0;
+    margin: 1vw 0;
   }
 `;
 
@@ -71,10 +70,11 @@ export const FormText = styled.p`
 
 export const ModalTitle = styled.h1`
   text-align: left;
-  margin: 2vh 0;
+  margin: 0.5vh 0;
   color: white;
 `
 export const ModalText = styled.p`
+  margin-bottom: 3vh;
   text-align: left;
   color: white;
 `;
@@ -199,4 +199,14 @@ export const ModalContent = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 20px;
+`;
+
+export const ModalButtonRowContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  gap: 10px;
 `;

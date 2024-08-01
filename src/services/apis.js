@@ -114,7 +114,8 @@ export const sendLoginData = async ( data )  => {
   
       if (response.ok) {
         console.log(response);
-        return response.text();
+        const data = await response.json();
+        return data.postUrl
       } else {
         throw new Error('Failed to send data');
       }

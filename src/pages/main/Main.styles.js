@@ -31,6 +31,19 @@ const slideOut = keyframes`
   }
 `;
 
+const blink = keyframes`
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+`
+
 export const Container = styled.div`
   font-family: Arial, sans-serif;
   margin: 0 auto;
@@ -105,28 +118,6 @@ export const BodyTitleRIGHT = styled.h1`
     font-size: 3em;
   }
 
-`;
-
-export const BodyTitleLEFT = styled.h1`
-  animation: ${slideUp} 0.5s ease-out 0s 1;
-  color: white;
-  text-align: Left;
-  font-size: 12em;
-
-  @media (max-width: 1024px) {
-    font-size: 8em;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 6em;
-  }
-
-  @media (max-width: 425px) {
-    font-size: 4em;
-  }
-  @media (max-width: 375px) {
-    font-size: 3em;
-  }
 `;
 
 export const RowContainer = styled.div`
@@ -361,6 +352,54 @@ export const LogoContainer = styled.div`
       width: 60vw; /* 가로 비율 자동 조정 */
     }
   }
+`;
 
+export const BodyTitleLEFT = styled.h1`
+  animation: ${slideUp} 0.5s ease-out 0s 1;
+  color: white;
+  text-align: left;
+  font-size: 12em;
+  line-height: 1; /* 줄 간격을 1로 설정 */
 
+  @media (max-width: 1024px) {
+    font-size: 8em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 6em;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 4em;
+  }
+  @media (max-width: 375px) {
+    font-size: 3em;
+  }
+`;
+
+export const BodyTitleBlink = styled.div`
+  animation: ${blink} 1s infinite;
+  color: white;
+  font-size: 12em;
+  line-height: 1; /* 줄 간격을 1로 설정 */
+
+  @media (max-width: 1024px) {
+    font-size: 11em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 8em;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 6em;
+  }
+  @media (max-width: 375px) {
+    font-size: 4em;
+  }
+`;
+
+export const RowTitleContainer = styled.div`
+  display: flex;
+  align-items: baseline; /* baseline 정렬로 변경 */
 `;

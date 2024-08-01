@@ -35,6 +35,10 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     backgroundColor: 'black',
+    /* 외곽선 둥굴게 */
+    borderRadius: '20px',
+    /* shadow 적용 */
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.7)',
   }
 };
 
@@ -50,11 +54,11 @@ function Home() {
   const [solution, setSolution] = useState('');
   const [result, setResult] = useState('');
   const [title, setTitle] = useState('');
-  const [shortscript, setShortscript] = useState('');
   const [loading, setLoading] = useState(false);
 
   const [sendloading, setSendLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [postedURL, setPostedURL] = useState('');
 
   const links = [
     {
@@ -68,6 +72,22 @@ function Home() {
       style: {}
     }
   ];
+  /* Test Button */
+  const handleTestGenerate = async () => {
+    setLoading(true);
+  };
+  const handleTestSend = async () => {
+    setSendLoading(true);
+  };
+  /* Test completed */
+  const handleTestCompleted = async () => {
+    setCompleted(true);
+  }
+
+  const handleOpenNewWindow = () => {
+    window.open(postedURL, '_blank', 'noopener,noreferrer');
+  };
+
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -86,7 +106,10 @@ function Home() {
   const handleSend = async () => {
     //console.log(result);
     setSendLoading(true);
-    await postVelog(initVelogPostFormat(title, result));
+    const postedURL = await postVelog(initVelogPostFormat(title, result));
+    /* 전달 받은 url을 postedURL에 저장 */
+    setPostedURL(postedURL);
+    console.log(postedURL);
     setLoading(false);
     setCompleted(true);
   };
@@ -98,6 +121,7 @@ function Home() {
     setSolution('');
     setTitle('');
     setResult('');
+    setPostedURL('');
     setSendLoading(false);
     setCompleted(false);
   };
@@ -153,11 +177,6 @@ function Home() {
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)} />
-              <styles.FormTitle> 요약글 </styles.FormTitle>
-              <styles.Input
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)} />
               <styles.FormTitle> 작성된 결과 </styles.FormTitle>
               <styles.ResultBoxInput
                   as="textarea"
@@ -172,7 +191,6 @@ function Home() {
           </styles.FormRowContainer>
         </styles.FormContainer>
       </AnimatedContainer>
-
       <Modal
         isOpen={loading}
         onRequestClose={() => setLoading(false)}
@@ -195,7 +213,7 @@ function Home() {
         <styles.ModalContent>
           <styles.ModalTitle>Velog 업로드 중</styles.ModalTitle>
           <styles.ModalText>잠시만 기다려주세요</styles.ModalText>
-          <BeatLoader color="#FFFFFF" loading={loading} size={15} margin={2} />
+          <BeatLoader color="#FFFFFF" loading={sendloading} size={15} margin={2} />
         </styles.ModalContent>
       </Modal>
 
@@ -208,9 +226,13 @@ function Home() {
         <styles.ModalContent>
           <styles.ModalTitle>작성 완료</styles.ModalTitle>
           <styles.ModalText>작성된 글을 Velog업로드를 완료하였습니다.</styles.ModalText>
-          <Link to="/Home">
-            <styles.Button onClick = {handleReset}>다시 작성하기</styles.Button>
-          </Link>
+          <styles.ModalButtonRowContainer>
+            <Link to="/Home">
+              <styles.Button onClick = {handleReset}>다시 작성하기</styles.Button>
+            </Link>
+              <styles.Button onClick = {handleOpenNewWindow}>작성된 글 확인하기</styles.Button>
+          </styles.ModalButtonRowContainer>
+
         </styles.ModalContent>
       </Modal>
     </styles.Container>
