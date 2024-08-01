@@ -49,6 +49,15 @@ export const Container = styled.div`
   margin: 0 auto;
   background-color: black;
   min-height: 100vh;
+
+  @media (max-width: 2560px) {
+    padding: 0 20vw;
+  }
+  
+  @media (max-width: 1440px) {
+    padding: 0;
+  }
+}
 `;
 
 export const BodyContainer = styled.div`
@@ -125,6 +134,10 @@ export const RowContainer = styled.div`
   margin: 0 5vh;
   display: flex;
   flex-direction: row;
+
+  @media (max-width:1440px) {
+    padding: 0 10vw;
+  }
 `
 
 export const ColumnContainer = styled.div`
@@ -154,7 +167,6 @@ export const BoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5vh;
-
 `;
 
 export const BoxTitle3 = styled.h3`
@@ -180,6 +192,18 @@ export const BoxTitle = styled.h1`
   font-size: 2em;
   text-align: center;
 
+  @media (max-width: 2560px) {
+    font-size: 2.5em;
+  }
+
+  @media (max-width: 1440px) {
+    font-size: 3em;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 1.5em;
+  }
+
   @media (max-width: 768px) {
     font-size: 1.5em;
   }
@@ -200,6 +224,18 @@ export const BoxText = styled.p`
   margin: 0 0 1em 0;
   font-size: 1em;
   text-align: center;
+
+  @media (max-width: 2560px) {
+    font-size: 1.8em;
+  }
+
+  @media (max-width: 1440px) {
+    font-size: 1.8em;
+  }
+  
+  @media (max-width: 1024px) {
+    font-size: 1.5em;
+  }
 
   @media (max-width: 768px) {
     font-size: 1em;
@@ -359,7 +395,6 @@ export const BodyTitleLEFT = styled.h1`
   color: white;
   text-align: left;
   font-size: 12em;
-  line-height: 1; /* 줄 간격을 1로 설정 */
 
   @media (max-width: 1024px) {
     font-size: 8em;

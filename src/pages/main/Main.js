@@ -80,7 +80,7 @@ function Main() {
       <Header links={links}/>
       <styles.BodyContainer>
         <styles.BodyTitleRIGHT>AUTO</styles.BodyTitleRIGHT>
-        <styles.BodyTitleRIGHT>DEVELOPE</styles.BodyTitleRIGHT>
+        <styles.BodyTitleRIGHT>DEVELOPER</styles.BodyTitleRIGHT>
         <styles.RowTitleContainer>
           <styles.BodyTitleLEFT>.LOG</styles.BodyTitleLEFT>
           <styles.BodyTitleBlink>|</styles.BodyTitleBlink>
