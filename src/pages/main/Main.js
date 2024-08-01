@@ -81,7 +81,10 @@ function Main() {
       <styles.BodyContainer>
         <styles.BodyTitleRIGHT>AUTO</styles.BodyTitleRIGHT>
         <styles.BodyTitleRIGHT>DEVELOPE</styles.BodyTitleRIGHT>
-        <styles.BodyTitleLEFT>.LOG</styles.BodyTitleLEFT>
+        <styles.RowTitleContainer>
+          <styles.BodyTitleLEFT>.LOG</styles.BodyTitleLEFT>
+          <styles.BodyTitleBlink>|</styles.BodyTitleBlink>
+        </styles.RowTitleContainer>
       </styles.BodyContainer>
       <styles.ColumnContainer>
         <styles.BodyTitle>오늘 하루 당신의 개발일지를 작성하세요</styles.BodyTitle>
